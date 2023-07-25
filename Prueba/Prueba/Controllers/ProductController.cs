@@ -38,9 +38,38 @@ namespace Prueba.Controllers
         [HttpPost]
         public IActionResult Create(Product model)
         {
-            _context.Products.Add(model);
-            _context.SaveChanges();
-            return RedirectToAction(nameof(Index));
+            if(ModelState.IsValid)
+            {
+                _context.Products.Add(model);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            return View();
+        }
+
+        [HttpGet]
+
+        public IActionResult Edit(int? id)
+        {
+            if(id != null && )
+            {
+                NotFound();
+            }
+            LoadCategories();
+            var product = _context.Products.Find(id);
+            return View(product);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Product model)
+        {
+            if(ModelState.IsValid)
+            {
+                _context.Products.Update(model);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index);
+            }
+            return View();
         }
     }
 }
