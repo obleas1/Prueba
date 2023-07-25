@@ -1,0 +1,36 @@
+﻿@model Product
+
+@{
+    ViewData["Title"] = "Create Product";
+}
+
+<h3>@ViewData["Title"]</h3>
+<hr />
+<form asp-action="Create">
+<div class="container">
+    <div class="mb-2">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+        <div class="mb-2">
+            <label asp-for="Price" class="control-label"></label>
+            <input asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+        <div class="mb-2">
+            <label asp-for="Qty" class="control-label"></label>
+            <input asp-for="Qty" class="form-control" />
+            <span asp-validation-for="Qty" class="text-danger"></span>
+        </div>
+        <div class="mb-2">
+            <label class="control-label">Category</label>
+            <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.Categories">
+                <option>--Select Category--</option>
+            </select>
+        </div>
+        <div>
+            <input type="submit" value="Create" class="btn btn-primary btn-sm" />
+        </div>
+</div>
+</form>
