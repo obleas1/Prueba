@@ -51,7 +51,7 @@ namespace Prueba.Controllers
 
         public IActionResult Edit(int? id)
         {
-            if(id != null && )
+            if (id != null)
             {
                 NotFound();
             }
@@ -67,7 +67,7 @@ namespace Prueba.Controllers
             {
                 _context.Products.Update(model);
                 _context.SaveChanges();
-                return RedirectToAction(nameof(Index);
+                return RedirectToAction(nameof(Index));
             }
             return View();
         }
