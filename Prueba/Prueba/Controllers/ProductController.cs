@@ -18,5 +18,19 @@ namespace Prueba.Controllers
             var products = _context.Products.Include("Categories");
             return View(products);
         }
+
+        [HttpGet]
+        public IActionResult Create()
+        { 
+            LoadCategories();
+            return View();
+        }
+
+        [NonAction]
+        private void LoadCategories()
+        {
+            var categories = _context.Categories.ToList();
+            ViewBag.Categories = new SelectList(categories, "Id", "Name");
+        }
     }
 }
