@@ -1,6 +1,4 @@
-﻿using Prueba.Model
-
-@model Product
+﻿@model Product
 @{
     ViewData["Title"] = "Create Product";
 }
@@ -27,7 +25,7 @@
             <div class="mb-2">
                 <label class="control-label">Category</label>
                 <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.Categories">
-                    <option>--Select Category--</option>
+                <option>--Select Category--</option>
                 </select>
             </div>
             <div>

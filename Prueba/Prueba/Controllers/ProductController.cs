@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Prueba.DAL;
+using Prueba.Models;
 
 namespace Prueba.Controllers
 {
@@ -31,6 +33,14 @@ namespace Prueba.Controllers
         {
             var categories = _context.Categories.ToList();
             ViewBag.Categories = new SelectList(categories, "Id", "Name");
+        }
+        
+        [HttpPost]
+        public IActionResult Create(Product model)
+        {
+            _context.Products.Add(model);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Index));
         }
     }
 }
