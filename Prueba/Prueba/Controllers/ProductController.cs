@@ -66,5 +66,24 @@ namespace Prueba.Controllers
             }
             return View();
         }
+
+        [HttpGet]
+        public IActionResult Delete(int? id)
+        {
+            if (id != null)
+            {
+                NotFound();
+            }
+            var product = _context.Products.Find(id);
+            return View(product);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(Product model)
+        {
+            _context.Products.Remove(model);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
