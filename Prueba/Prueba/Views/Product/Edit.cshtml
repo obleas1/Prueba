@@ -7,6 +7,7 @@
 <h3>@ViewData</h3>
 <hr />
 <form asp-action="Edit">
+    <input type="hidden" asp-for="Id" />
     <div class="container">
         <div class="mb-2">
             <label asp-for="Name" class="control-label"></label>
@@ -30,7 +31,7 @@
             </select>
         </div>
         <div>
-            <input type="Submit" value="Create" class="btn btn-primary" />
+            <input type="Submit" value="Edit" class="btn btn-Success" />
         </div>
     </div>
     </div>
